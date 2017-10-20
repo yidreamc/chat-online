@@ -1,0 +1,64 @@
+<!doctype html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>聊天室</title>
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+<div class="chatbox">
+    <div class="chat_top fn-clear">
+        <div class="uinfo fn-clear">
+            <div class="uface"><img src="images/1.png" width="40" height="40"  alt=""/></div>
+            <div class="uname">
+                <span id="name" th:text="${user.name}">河图</span>
+                <input type="text" id="uid" th:value="${user.id}" style="display: none">
+            </div>
+        </div>
+    </div>
+    <div class="chat_message fn-clear">
+        <div class="chat_left">
+            <div class="message_box" id="message_box">
+                <div th:each="tm: ${top10mes}">
+                    <div class="msg_item fn-clear">
+                        <div class="uface"><img src="images/1.png" width="40" height="40"  alt=""/></div>
+                        <div class="item_right">
+                            <div class="msg" th:text="${tm.message}"></div>
+                            <div class="name_time" th:text="${tm.sendName} + ' ' + ${tm.time}"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="write_box">
+                <textarea id="message" name="message" class="write_area" placeholder="说点啥吧..."></textarea>
+                <input type="hidden" name="fromname" id="fromname" value="河图" />
+                <input type="hidden" name="to_uid" id="to_uid" value="0">
+                <div class="facebox fn-clear">
+                    <div class="expression"></div>
+                    <div class="chat_type" id="chat_type">群聊</div>
+                    <button name="" class="sub_but">提 交</button>
+                </div>
+            </div>
+        </div>
+        <div class="chat_right">
+            <ul class="user_list">
+                <li class="fn-clear selected"><em>所有用户</em></li>
+                <div id="users" th:each="ul: ${userlist}">
+                    <li class="fn-clear" data-id="1"><span><img src="images/1.png" width="30" height="30"  alt=""/></span><em th:text="${ul.name}"></em><small class="online" title="在线"></small></li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/sockjs.min.js"></script>
+<script src="js/stomp.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

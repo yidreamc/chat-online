@@ -1,0 +1,109 @@
+/*.backgroudPic{*/
+    /*background: url("./bg.png");*/
+/*}*/
+html,body{
+    margin:0;
+    border:0;
+    height: 100%;
+}
+.bgpic{
+    height:100%;
+    width:100%;
+    background: url("../images/bg.jpg");
+    background-size:200% 200%;
+}
+.backfiler{
+    height:70%;
+    width:100%;
+    padding-top:15%;
+    background: linear-gradient(to top right, rgba(255, 0, 0, .6) , rgba(0, 255, 0, .6)); /* 标准的语法 */
+
+}
+.backfiler>.loginBG{
+    margin:0 auto;
+    height:400px;
+    width:800px;
+    background: url("../images/bg.jpg") top;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: #2f2f2f 1px 1px 100px;
+}
+.loginFiler{
+    height:100%;
+    width:100%;
+    background: rgba(0,0,255,.5);
+
+}
+
+
+/**左侧样式**/
+.backfiler>.loginBG>.loginFiler>.left{
+    height:100%;
+    width:50%;
+    opacity: .4;
+    color: black;
+    float: left;
+}
+.backfiler>.loginBG>.loginFiler>.left>h1{
+    font-family:YaHeiConsola;
+    font-size:80px;
+}
+
+
+
+.backfiler>.loginBG>.loginFiler>.right{
+    height:100%;
+    width:50%;
+    background: white;
+    float: right;
+}
+.backfiler>.loginBG>.loginFiler>.right>h1 {
+    font-family: "Microsoft YaHei UI Light";
+    text-align: center;
+    color: #000;
+}
+label{
+    font-family:"Microsoft YaHei UI";
+}
+form{
+    width:100%;
+    margin:20px auto;
+    padding:4%;
+}
+form>input{
+
+    width:80%;
+    border:0;
+    border-bottom: 1px solid gray;
+    margin:10px auto;
+    outline:none;
+    height:35px;
+    font-size:30px;
+    font-family: "Microsoft YaHei UI Light";
+    
+}
+
+form>.loginBtn{
+    font-family: "Microsoft YaHei UI Light";
+    margin:20px;
+    width:100px;
+    height:30px;
+    border:none;
+    background: green;
+    border-radius: 15px;
+    box-shadow: green 1px 1px 15px;
+    font-size:17px;
+    color: white;
+    cursor:pointer;
+    transition: background,box-shadow .35s,.35s;
+
+}
+form>.loginBtn:hover{
+    background: purple;
+    box-shadow: purple 1px 1px 15px;
+}
+
+h4{
+    text-align: center;
+    color: red;
+}
