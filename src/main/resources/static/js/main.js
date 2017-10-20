@@ -32,8 +32,6 @@ $(document).ready(function(e) {
         sendMessage(event, 0);
     });
 
-    //用户名
-
 
     /*按下按钮或键盘按键*/
     $("#message").keydown(function(event){
@@ -93,7 +91,7 @@ window.onload = function () {
                 });
 
                 //获取用户列表
-                var subscription_getusers = stompClient.subscribe('/getusers', function callBack (response) {
+                var subscription_getusers = stompClient.subscribe('/userlist', function callBack (response) {
                     if (response.body) {
                         var html = '';
                         var userlist = JSON.parse(response.body);

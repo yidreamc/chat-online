@@ -4,6 +4,7 @@ import com.example.demo.model.OnlineUser;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,9 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private SimpMessagingTemplate messagingTemplate;
 
 
     @RequestMapping(value = {"/","/home"},method = RequestMethod.GET)
@@ -51,6 +55,7 @@ public class UserController {
             model.addAttribute("user",user);
             model.addAttribute("userlist",OnlineUser.users);
             request.getSession().setAttribute("user",user);
+            messagingTemplate.convertAndSend("/userlist",OnlineUser.users);
             return "index";
         }
     }

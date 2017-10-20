@@ -14,13 +14,24 @@ public class User {
 
     private String name;
     private String passwd;
+    private String avatar;
 
-    public User(String name, String passwd) {
+
+    public User(String name, String passwd, String avatar) {
         this.name = name;
         this.passwd = passwd;
+        this.avatar = avatar;
     }
 
     public User() {
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public int getId() {
