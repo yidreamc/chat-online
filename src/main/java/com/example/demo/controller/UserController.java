@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Controller
@@ -69,4 +71,19 @@ public class UserController {
         }
     }
 
+    @MessageMapping("/logout")
+    public void logout(@Payload Message message){
+        String uid = message.getSendId();
+
+        Iterator<User> userIterator = OnlineUser.users.iterator();
+        while(userIterator.hasNext()){
+            User user = userIterator.next();
+            if(String.valueOf(user.getId()).equals(uid)){
+                OnlineUser.users.remove(user);
+                break;
+            }
+
+        }
+        messagingTemplate.convertAndSend("/userlist",OnlineUser.users);
+    }
 }

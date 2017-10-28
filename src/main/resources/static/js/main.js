@@ -114,6 +114,20 @@ window.onload = function () {
      */
     window.onbeforeunload = function () {
 
+        var msg = 'logout';
+        var uname = $('#name').text();
+        var uid = $('#uid').val();
+        if (msg !== "") {
+            headers = {};
+            body = {
+                'message': msg,
+                'sendId': uid,
+                'sendName': uname,
+                'time': new Date().format("yy-MM-dd hh:mm:ss")
+            };
+            stompClient.send("/logout", headers, JSON.stringify(body));
+        }
+
 
         if (stompClient != null) {
             stompClient.disconnect();
