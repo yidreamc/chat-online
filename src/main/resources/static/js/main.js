@@ -95,8 +95,9 @@ window.onload = function () {
                     if (response.body) {
                         var html = '';
                         var userlist = JSON.parse(response.body);
+                        console.log(response.body);
                         for(var i =0;i<userlist.length;i++){
-                         html += '<li class="fn-clear" data-id="1"><span><img src="images/1.png" width="30" height="30"  alt=""/></span><em>' + userlist[i].name+ '</em><small class="online" title="在线"></small></li>'
+                         html += '<li class="fn-clear" data-id="1"><span><img src="' + userlist[i].avatar +  '" width="30" height="30"  alt=""/></span><em>' + userlist[i].name+ '</em><small class="online" title="在线"></small></li>'
                         }
                         $("#users").replaceWith(html);
                     } else {
@@ -113,12 +114,12 @@ window.onload = function () {
      */
     window.onbeforeunload = function () {
 
+
         if (stompClient != null) {
             stompClient.disconnect();
             socket.close();
 
         }
-        console.log('断开连接');
     };
     connect();
 

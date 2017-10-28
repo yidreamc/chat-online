@@ -49,8 +49,11 @@
         <div class="chat_right">
             <ul class="user_list">
                 <li class="fn-clear selected"><em>所有用户</em></li>
-                <div id="users" th:each="ul: ${userlist}">
-                    <li class="fn-clear" data-id="1"><span><img th:src="${ul.avatar}" src="images/1.png" width="30" height="30"  alt=""/></span><em th:text="${ul.name}"></em><small class="online" title="在线"></small></li>
+
+                <div id="users">
+                    <div th:each="ul: ${userlist}">
+                        <li class="fn-clear" data-id="1"><span><img th:src="${ul.avatar}" src="images/1.png" width="30" height="30"  alt=""/></span><em th:text="${ul.name}"></em><small class="online" title="在线"></small></li>
+                    </div>
                 </div>
             </ul>
         </div>
