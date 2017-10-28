@@ -13,10 +13,10 @@
 <div class="chatbox">
     <div class="chat_top fn-clear">
         <div class="uinfo fn-clear">
-            <div class="uface"><img src="images/1.png" width="40" height="40"  alt=""/></div>
+            <div class="uface"><img th:src="${ user.avatar }" src="images/1.png" width="40" height="40"  alt=""/></div>
             <div class="uname">
                 <span id="name" th:text="${user.name}">河图</span>
-                <input type="text" id="uid" th:value="${user.id}" style="display: none">
+                <input type="text" id="uid" th:value="${ user.id }" style="display: none">
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
             <div class="message_box" id="message_box">
                 <div th:each="tm: ${top10mes}">
                     <div class="msg_item fn-clear">
-                        <div class="uface"><img src="images/1.png" width="40" height="40"  alt=""/></div>
+                        <div class="uface"><img th:src="${tm.sendAvatar}" src="images/1.png" width="40" height="40"  alt=""/></div>
                         <div class="item_right">
                             <div class="msg" th:text="${tm.message}"></div>
                             <div class="name_time" th:text="${tm.sendName} + ' ' + ${tm.time}"></div>
@@ -50,7 +50,7 @@
             <ul class="user_list">
                 <li class="fn-clear selected"><em>所有用户</em></li>
                 <div id="users" th:each="ul: ${userlist}">
-                    <li class="fn-clear" data-id="1"><span><img src="images/1.png" width="30" height="30"  alt=""/></span><em th:text="${ul.name}"></em><small class="online" title="在线"></small></li>
+                    <li class="fn-clear" data-id="1"><span><img th:src="${ul.avatar}" src="images/1.png" width="30" height="30"  alt=""/></span><em th:text="${ul.name}"></em><small class="online" title="在线"></small></li>
                 </div>
             </ul>
         </div>

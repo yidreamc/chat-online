@@ -75,7 +75,7 @@ window.onload = function () {
                         var msg = JSON.parse(response.body);
 
                         var htmlData =   '<div class="msg_item fn-clear">'
-                            + '   <div class="uface"><img src="images/1.png" width="40" height="40"  alt=""/></div>'
+                            + '   <div class="uface"><img src="' + msg.sendAvatar  + '" width="40" height="40"  alt=""/></div>'
                             + '   <div class="item_right">'
                             + '     <div class="msg own">' +  msg.message + '</div>'
                             + '     <div class="name_time">'+ msg.sendName + ' ' + msg.time +  '</div>'
@@ -112,6 +112,7 @@ window.onload = function () {
      * 监听窗口关闭事件，窗口关闭前，主动关闭连接，防止连接还没断开就关闭窗口，server端会抛异常
      */
     window.onbeforeunload = function () {
+
         if (stompClient != null) {
             stompClient.disconnect();
             socket.close();

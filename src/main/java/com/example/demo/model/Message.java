@@ -16,8 +16,7 @@ public class Message {
     private String sendId;
     private String sendName;
     private String time;
-
-
+    private String sendAvatar;
 
     public Message(String message, String sendId, String sendName, String time) {
         this.message = message;
@@ -27,6 +26,14 @@ public class Message {
     }
 
     public Message() {
+    }
+
+    public String getSendAvatar() {
+        return sendAvatar;
+    }
+
+    public void setSendAvatar(String sendAvatar) {
+        this.sendAvatar = sendAvatar;
     }
 
     public String getMessage() {
